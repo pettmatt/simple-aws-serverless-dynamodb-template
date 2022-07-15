@@ -1,3 +1,52 @@
+# Serverless application with Dynamodb local
+
+Template for jump starting a serverless project including setting up local testing environment with `serverless-dynamodb-local`-plugin.
+
+Necessary dependencies:
+
+- Java
+- Serverless
+- Serverless-offline
+- Serverless-dynamodb-local
+
+Install Java through [Oracle's website](https://www.oracle.com/java/technologies/downloads/)
+or check if you have Java installed with `java --version` which should print installed version like below. 
+
+```
+java 18.0.1.1 2022-04-22
+Java(TM) SE Runtime Environment (build 18.0.1.1+2-6)
+Java HotSpot(TM) 64-Bit Server VM (build 18.0.1.1+2-6, mixed mode, sharing)
+```
+
+Install serverless globally through npm with `npm i -g serverless`-command.
+Alternatively you can use `npx`-command to use serverless without installing it globally.
+
+Serverless plugins are already included through npm packages, but it never hurts to inform that THEY are necessary. Remember to `npm install`.
+
+Note that `serverless.yml`-file needs to have specified "whitelisted" stages.
+
+```
+custom:
+  ...
+  dynamodb:
+    stages:
+      - dev
+```
+
+Without whitelisting the application won't start and will show following error message.
+
+``
+Skipping start: DynamoDB Local is not available for stage: dev
+``
+
+Before starting the application serverless requires installation of dynamodb with `serverless dynamodb install`. 
+
+Start just dynamodb with `serverless dynamodb start` or start application with `serverless offline start`.
+
+If everything works you should see `Server ready: http://localhost:3000 🚀`.
+
+### Note: The template was generated using Serverless build in template generator!
+
 <!--
 title: 'Serverless Framework Node Express API service backed by DynamoDB on AWS'
 description: 'This template demonstrates how to develop and deploy a simple Node Express API service backed by DynamoDB running on AWS Lambda using the traditional Serverless Framework.'

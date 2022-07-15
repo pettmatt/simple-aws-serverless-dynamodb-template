@@ -6,6 +6,8 @@ custom:
   dynamodb:
     stages:
       - dev # Whitelisted stage || program breaks without this
+    start:
+      migrate: true
 
 provider:
   name: aws
@@ -28,10 +30,11 @@ provider:
 
 plugins:
   - serverless-dynamodb-local
+  - serverless-offline
 
 functions:
   api:
-    handler: handler.handler
+    handler: index.handler
     events:
       - httpApi: '*'
 

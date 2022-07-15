@@ -2,6 +2,10 @@
   "name": "aws-node-express-dynamodb-api-project",
   "version": "1.0.0",
   "description": "",
+  "scripts": {
+    "start": "serverless offline start",
+    "dynamodb": "serverless dynamodb start"
+  },
   "dependencies": {
     "express": "^4.17.1",
     "serverless-http": "^2.7.0"
